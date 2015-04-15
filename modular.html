@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Underscore Template - RequireJS sample</title>
+</head>
+<body>
+ <h1>Underscore.js Templates and RequireJS</h1>
+ 
+<script src="jquery-2.1.3.min.js"></script>
+<script src="underscore-min.js"></script>
+<script src="require.js"></script>
+<script type="text/javascript">
+
+require.config( {
+	paths:{
+		'text' :'text',
+	},
+		baseUrl:''
+});
+
+var stuData = {
+listTitle: "Students Details",
+	listItems: [
+	{
+		name: "Kavi",mark: 89
+	},
+	{
+		name: "Aarthi",mark: 78
+	},
+	{
+		name: "Bala",mark: 15
+	},
+	{
+		name: "Shrini",mark: 45
+	}
+	]
+};
+
+$( document ).ready(function() {
+
+$("#show").click(function(){
+	require(['text!stuTemplate.html'],
+		function(stuTemplate) {
+		   _.templateSettings.variable = "x";
+			var template = _.template(stuTemplate);
+			var tplString = template( stuData );
+			$("#students").html(tplString);
+		}
+	);
+});
+
+});
+</script>
+<button id="show" type="button">Get Student Details</button> 
+<div id="students"> </div>
+</body>
+</html> 

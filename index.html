@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Underscore Template sample</title>
+</head>
+
+<body>
+
+<script type="text/template" class="students-list-template">
+<% _.each( listItems, function( listItem ){ %>
+	<li>
+	<%- listItem.name %>
+	<% if ( listItem.mark >30 ){
+		print('<em>Pass</em>');
+	 } else { 
+		print('<em>Fail</em>');
+	 }%>
+	</li>
+<% }); %>
+</script>
+
+<script src="jquery-2.1.3.min.js"></script>
+<script src="underscore-min.js"></script>
+<script src="view1.js"></script>
+<header> </header>
+<section> </section>
+
+<div id="students"> </div>
+</body>
+</html>

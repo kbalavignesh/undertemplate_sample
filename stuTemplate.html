@@ -1,0 +1,14 @@
+<h2>  <%- x.listTitle %> </h2>
+
+<ul>
+<% _.each( x.listItems, function( listItem ){ %>
+	<li>
+	<%- listItem.name %>
+	<% if ( listItem.mark >30 ){ %>
+		<em>Pass</em>
+	<% } else { %>
+		<em>Fail</em>
+	<%}%>
+	</li>
+<% }); %>
+</ul>
